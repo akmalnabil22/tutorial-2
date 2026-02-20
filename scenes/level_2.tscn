@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://nu8kdoolgmuf"]
+
+[ext_resource type="PackedScene" uid="uid://m0akvnolu6gt" path="res://scenes/green_ship.tscn" id="1_jm1iu"]
+[ext_resource type="Script" uid="uid://bncchtbwaw1c3" path="res://scenes/playing_area.gd" id="1_pbc48"]
+[ext_resource type="PackedScene" uid="uid://ct0jns3j6qqo6" path="res://scenes/snow_platform.tscn" id="2_pbc48"]
+[ext_resource type="PackedScene" uid="uid://cawu5ae0hkc2a" path="res://scenes/objective_area.tscn" id="4_eqxsl"]
+[ext_resource type="PackedScene" uid="uid://b5a4ynav86ee6" path="res://scenes/meteor.tscn" id="5_b4j7a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqxsl"]
+size = Vector2(1168, 663)
+
+[node name="Level2" type="Node2D" unique_id=227778845]
+
+[node name="PlayingArea" type="Area2D" parent="." unique_id=1441230731]
+script = ExtResource("1_pbc48")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayingArea" unique_id=855744339]
+position = Vector2(574, 321.5)
+shape = SubResource("RectangleShape2D_eqxsl")
+
+[node name="GreenShip" parent="." unique_id=522378489 instance=ExtResource("1_jm1iu")]
+position = Vector2(128, 265)
+
+[node name="Platform" type="Node2D" parent="." unique_id=1557560878]
+position = Vector2(90, 347)
+
+[node name="SnowPlatform" parent="Platform" unique_id=1082160145 instance=ExtResource("2_pbc48")]
+
+[node name="SnowPlatform2" parent="Platform" unique_id=524884514 instance=ExtResource("2_pbc48")]
+position = Vector2(70, 0)
+
+[node name="ObjectiveArea" parent="." unique_id=1471486625 instance=ExtResource("4_eqxsl")]
+position = Vector2(995, 270)
+
+[node name="Obstacle" type="Node2D" parent="." unique_id=1254231375]
+
+[node name="Meteor" parent="Obstacle" unique_id=1137891025 instance=ExtResource("5_b4j7a")]
+position = Vector2(547, 295)
+
+[node name="Meteor2" parent="Obstacle" unique_id=1710313292 instance=ExtResource("5_b4j7a")]
+position = Vector2(714, 427)
+
+[node name="Meteor3" parent="Obstacle" unique_id=876228733 instance=ExtResource("5_b4j7a")]
+position = Vector2(475, 511)
+
+[connection signal="body_shape_exited" from="PlayingArea" to="PlayingArea" method="_on_body_shape_exited"]

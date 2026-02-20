@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cawu5ae0hkc2a"]
+
+[ext_resource type="Script" uid="uid://x2rdmjyr1ttw" path="res://scenes/ObjectiveArea.gd" id="1_keh33"]
+[ext_resource type="Texture2D" uid="uid://dh610bbucs6rh" path="res://assets/fasilkom.png" id="2_m2hvn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0kc7"]
+size = Vector2(152.75, 158.5)
+
+[node name="ObjectiveArea" type="Area2D" unique_id=1471486625]
+script = ExtResource("1_keh33")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=32376154]
+position = Vector2(77.625, 79.75)
+shape = SubResource("RectangleShape2D_y0kc7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1841980437]
+position = Vector2(78, 81)
+texture = ExtResource("2_m2hvn")
+
+[connection signal="body_entered" from="." to="." method="_on_ObjectiveArea_body_entered"]
